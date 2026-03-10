@@ -1,0 +1,423 @@
+Файл исходник: C:\Users\Frich\Downloads\MLops\Bitrix\Исходящие документы.bpt
+============================================================
+
+VERSION: 2
+TEMPLATE:
+    0:
+        Type: SequentialWorkflowActivity
+        Name: Template
+        Properties:
+            Title: Последовательный бизнес-процесс
+        Children:
+            0:
+                Type: SetVariableActivity
+                Name: A96598_63341_60465_91956
+                Properties:
+                    VariableValue:
+                        Employee: {=Document:CREATED_BY}
+                    Title: Изменение переменных
+            1:
+                Type: SetFieldActivity
+                Name: A13301_41713_88178_51624
+                Properties:
+                    FieldValue:
+                        NAME: {=Variable:Employee_printable} добавил(а) исходящий документ от {=Document:PROPERTY_DATE}
+                    Title: Изменение документа
+            2:
+                Type: SetPermissionsActivity
+                Name: A15194_44629_63359_76306
+                Properties:
+                    Permission:
+                        R:
+                            0: {=Document:CREATED_BY}
+                            1: {=Constant:Manager}
+                    Rewrite: 
+                    SetMode: 1
+                    SetScope: 1
+                    Title: Установка прав автору
+            3:
+                Type: IMNotifyActivity
+                Name: A82051_1974_22580_17152
+                Properties:
+                    MessageSite:
+                        Вам необходимо зафиксировать исходящий документ и указать его номер по реестру.
+                        В случае получения ответа на этот документ, запустите новый процесс Входящие документы в Живой ленте. 
+                    MessageOut: 
+                    MessageType: 4
+                    MessageUserFrom:
+                        0: {=Document:CREATED_BY}
+                    MessageUserTo:
+                        0: {=Constant:Manager}
+                    Title: Уведомление пользователя
+            4:
+                Type: RequestInformationActivity
+                Name: A76923_33199_90972_23015
+                Properties:
+                    OverdueDate: 
+                    Name: Зафиксировать исходящий документ
+                    Description:
+                        Вам необходимо зафиксировать исходящий документ от {=Document:PROPERTY_DATE} и указать его номер по реестру.
+                        В случае получения ответа на этот документ, запустите новый процесс Входящие документы в Живой ленте. 
+                        
+                        Загрузил(а): {=Variable:Employee_printable}
+                        О документе: {=Document:PREVIEW_TEXT}
+                        Файл:
+                        {=Document:PROPERTY_FILE_printable}
+                    Parameters: 
+                    RequestedInformation:
+                        0:
+                            Title: Номер
+                            Name: NUM
+                            Type: string
+                            Required: 1
+                            Multiple: 0
+                            Default_printable: 
+                            Default: 
+                    TaskButtonMessage: Сохранить
+                    CommentLabelMessage: Комментарий
+                    ShowComment: N
+                    StatusMessage: Фиксация в реестре
+                    SetStatusMessage: Y
+                    AccessControl: N
+                    Users:
+                        0: {=Constant:Manager}
+                    Title: Запрос дополнительной информации
+            5:
+                Type: SetFieldActivity
+                Name: A33285_28880_93635_57075
+                Properties:
+                    FieldValue:
+                        PROPERTY_NUM: {=Variable:NUM}
+                        NAME: {=Variable:Employee_printable} добавил(а) исходящий документ №{=Variable:NUM} от {=Document:PROPERTY_DATE}
+                    Title: Изменение документа
+            6:
+                Type: IMNotifyActivity
+                Name: A56793_91156_58410_41488
+                Properties:
+                    MessageSite:
+                        Исходящий документ №{=Document:PROPERTY_NUM} от {=Document:PROPERTY_DATE} отправлен.
+                        
+                        О документе:
+                        {=Document:PREVIEW_TEXT}
+                    MessageOut: 
+                    MessageType: 2
+                    MessageUserFrom:
+                        0: {=Constant:Manager}
+                    MessageUserTo:
+                        0: {=Document:CREATED_BY}
+                    Title: Уведомление пользователя
+PARAMETERS:
+VARIABLES:
+    Employee:
+        Name: Ответственный
+        Description: 
+        Type: user
+        Required: 0
+        Multiple: 0
+        Default_printable: 
+        Default: 
+    NUM:
+        Title: Номер
+        Name: Номер
+        Type: string
+        Required: 1
+        Multiple: 0
+        Default_printable: 
+        Default: 
+CONSTANTS:
+    Manager:
+        Name: Кто фиксирует
+        Description: Кто фиксирует, контролирует реестр документов
+        Type: user
+        Required: 1
+        Multiple: 0
+        Default_printable: 
+        Default: 
+DOCUMENT_FIELDS:
+    ID:
+        Name: ID элемента
+        Type: int
+        Filterable: True
+        Editable: False
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    TIMESTAMP_X:
+        Name: Дата изменения элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    MODIFIED_BY:
+        Name: Кем изменен
+        Type: user
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: user
+        Complex: False
+    DATE_CREATE:
+        Name: Дата создания элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    CREATED_BY:
+        Name: Кем создан
+        Type: user
+        Filterable: True
+        Editable: False
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: user
+        Complex: False
+    IBLOCK_ID:
+        Name: ID информационного блока
+        Type: int
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    ACTIVE:
+        Name: Активность элемента
+        Type: bool
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: bool
+        Complex: False
+    BP_PUBLISHED:
+        Name: Опубликован
+        Type: bool
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: bool
+        Complex: False
+    ACTIVE_FROM:
+        Name: Дата начала активности элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    ACTIVE_TO:
+        Name: Дата окончания активности элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    SORT:
+        Name: Индекс сортировки элемента
+        Type: int
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    NAME:
+        Name: Название
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        Type: string
+        sort: 10
+        settings:
+            SHOW_ADD_FORM: N
+            SHOW_EDIT_FORM: N
+        active: True
+        active_type: NAME
+        DefaultValue: Документ
+        BaseType: string
+        Complex: False
+    PREVIEW_PICTURE:
+        Name: Изображение для предпросмотра
+        Type: file
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: file
+        Complex: False
+    PREVIEW_TEXT:
+        Name: О документе
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        Type: text
+        sort: 40
+        settings:
+            USE_EDITOR: N
+            WIDTH: 600
+            HEIGHT: 200
+            SHOW_ADD_FORM: Y
+            SHOW_EDIT_FORM: Y
+            ADD_READ_ONLY_FIELD: 
+            EDIT_READ_ONLY_FIELD: 
+            SHOW_FIELD_PREVIEW: 
+        active: True
+        active_type: PREVIEW_TEXT
+        DefaultValue: 
+        BaseType: text
+        Complex: False
+    PREVIEW_TEXT_TYPE:
+        Name: Тип текста для предпросмотра
+        Type: select
+        Options:
+            text: Текст
+            html: Html
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: select
+        Complex: True
+    DETAIL_PICTURE:
+        Name: Изображение для просмотра
+        Type: file
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: file
+        Complex: False
+    DETAIL_TEXT:
+        Name: Текст для просмотра
+        Type: text
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: text
+        Complex: False
+    DETAIL_TEXT_TYPE:
+        Name: Тип текста для просмотра
+        Type: select
+        Options:
+            text: Текст
+            html: Html
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: select
+        Complex: True
+    CODE:
+        Name: Мнемонический код
+        Type: string
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: string
+        Complex: False
+    XML_ID:
+        Name: Внешний ключ
+        Type: string
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: string
+        Complex: False
+    PROPERTY_NUM:
+        Name: Номер документа
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        TypeReal: S
+        UserTypeSettings: 
+        IblockPropertyId: 82
+        Alias: PROPERTY_82
+        Type: string
+        DefaultValue: 
+        sort: 20
+        settings:
+            SHOW_ADD_FORM: N
+            SHOW_EDIT_FORM: Y
+        active: True
+        row_count: 1
+        col_count: 30
+        BaseType: string
+        Complex: False
+    PROPERTY_DATE:
+        Name: Дата документа
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        TypeReal: S:Date
+        UserTypeSettings: False
+        IblockPropertyId: 84
+        Alias: PROPERTY_84
+        Type: date
+        DefaultValue: 
+        sort: 30
+        settings:
+            SHOW_ADD_FORM: Y
+            SHOW_EDIT_FORM: Y
+        active: True
+        row_count: 1
+        col_count: 30
+        BaseType: date
+        Complex: False
+    PROPERTY_FILE:
+        Name: Файл
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        TypeReal: F
+        UserTypeSettings: 
+        IblockPropertyId: 86
+        Alias: PROPERTY_86
+        Type: file
+        sort: 50
+        settings:
+            SHOW_ADD_FORM: Y
+            SHOW_EDIT_FORM: Y
+        active: True
+        DefaultValue: 
+        row_count: 1
+        col_count: 30
+        BaseType: file
+        Complex: False

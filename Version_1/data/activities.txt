@@ -1,0 +1,20 @@
+SequentialWorkflowActivity | Последовательный бизнес-процесс | Конструкции
+DiskAddFolderActivity | Создать папку в Диске | Диск
+WhileActivity | Цикл | Конструкции
+SequenceActivity | Последовательность действий | Конструкции
+Task2Activity | Поставить задачу | Задания
+RequestInformationActivity | Запрос дополнительной информации | Задания
+IfElseBranchActivity | Ветка условия | Конструкции
+SetVariableActivity | Изменение переменных | Прочее
+SetFieldActivity | Изменение документа | Обработка документа
+SetPermissionsActivity | Установка прав | Обработка документа
+IMNotifyActivity | Сообщение соц. сети | Уведомления
+EmptyBlockActivity | Блок действий | Прочее
+LogActivity | Запись в отчет | Прочее
+IfElseActivity | Условие | Конструкции
+GetUserActivity | Выбор сотрудника | Прочее
+TerminateActivity | Прерывание процесса | Конструкции
+SetStateTitleActivity | Установить статус | Обработка документа
+ApproveActivity | Утверждение документа | Задания
+DelayActivity | Пауза в выполнении | Прочее
+ReviewActivity | Ознакомление с документом | Задания

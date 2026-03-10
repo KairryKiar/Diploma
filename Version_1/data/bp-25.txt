@@ -1,0 +1,843 @@
+Файл исходник: C:\Users\Frich\Downloads\MLops\bp-25.bpt
+============================================================
+
+VERSION: 2
+TEMPLATE:
+    0:
+        Type: SequentialWorkflowActivity
+        Name: Template
+        Activated: Y
+        Node: 
+        Properties:
+            Title: Последовательный бизнес-процесс
+            Permission:
+                D:
+                E:
+                R:
+                S:
+                T:
+                U:
+                W:
+                X:
+        Children:
+            0:
+                Type: DiskAddFolderActivity
+                Name: A81269_73940_14466_61324
+                Activated: Y
+                Node: 
+                Properties:
+                    EntityId: 93
+                    EntityType: folder
+                    FolderName: {=Document:NAME}
+                    CreatedBy:
+                    Title: Создать папку в Диске
+                    EditorComment: 
+                Children:
+            1:
+                Type: Task2Activity
+                Name: A37141_5674_40744_88113
+                Activated: Y
+                Node: 
+                Properties:
+                    Fields:
+                        TITLE: Сбор документов УПД: {=Document:NAME}
+                        CREATED_BY: {=Document:CREATED_BY}
+                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                        DESCRIPTION:
+                            Необходимо подготовить пакет документов для передачи в бухгалтерию.
+                            Это черновик заявки. Вы можете закрывать и открывать эту задачу, пока не соберете все файлы.
+                            
+                            ИНСТРУКЦИЯ:
+                            1. Загрузите сканы (Договор, Спецификация, УПД) в папку текущего процесса по ссылке: {=A81269_73940_14466_61324:DetailUrl}
+                            2. Для удобства вы можете продублировать файлы сюда, но бухгалтер увидит только файлы в папке на диске по ссылке выше.
+                            3. Проверьте файлы. Бухгалтер увидит заявку только после того, как вы нажмете кнопку "Завершить".
+                        ACCOMPLICES: 
+                        START_DATE_PLAN: 
+                        END_DATE_PLAN: 
+                        DEADLINE: 
+                        PRIORITY: 
+                        GROUP_ID: 0
+                        FLOW_ID: 
+                        ALLOW_CHANGE_DEADLINE: Y
+                        ALLOW_TIME_TRACKING: Y
+                        TASK_CONTROL: N
+                        AUDITORS: 
+                        PARENT_ID: 
+                        TAG_NAMES:
+                        REQUIRED_RESULT: N
+                        DEPENDS_ON:
+                        UF_CRM_TASK: 
+                        UF_TASK_WEBDAV_FILES:
+                            0: 
+                    HoldToClose: Y
+                    AUTO_LINK_TO_CRM_ENTITY: N
+                    AsChildTask: 
+                    CheckListItems:
+                    TimeEstimateHour: 
+                    TimeEstimateMin: 
+                    Title: Сбор документов
+                    EditorComment: 
+                Children:
+            2:
+                Type: WhileActivity
+                Name: A35333_78598_6239_16165
+                Activated: Y
+                Node: 
+                Properties:
+                    propertyvariablecondition:
+                        0:
+                            0: cicle_buh
+                            1: =
+                            2: N
+                            3: 0
+                    Title: Проверка бухгалтером
+                    EditorComment: 
+                    _DesMinimized: Y
+                Children:
+                    0:
+                        Type: SequenceActivity
+                        Name: A50311_70826_49944_51069
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+                            0:
+                                Type: Task2Activity
+                                Name: A8385_44049_85386_48199
+                                Activated: Y
+                                Node: 
+                                Properties:
+                                    Fields:
+                                        TITLE: Проверка документов бизнес-процесса "Оформление УПД": {=Document:NAME}
+                                        CREATED_BY: {=Document:CREATED_BY}
+                                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                                        DESCRIPTION:
+                                            Необходимо проверить переданные снабженцем документы для оформления УПД.
+                                            
+                                            ИНСТРУКЦИЯ:
+                                            1. Проверьте загруженные файлы в папке текущего процесса по ссылке: {=A81269_73940_14466_61324:DetailUrl}
+                                            2. Папка с файлами будет доступна после завершения задачи.
+                                            3. Проверьте файлы. После полной проверки вне зависимости от результата нажмите кнопку "Завершить".
+                                            4. После этого на вкладке "Лента" появится новый запрос, где нужно выбрать результат проверки: принять или отправить обратно снабженцу на доработку.
+                                            5. При выборе пункта "Отправить на доработку" снабженцу отправится задача на доработку, а потом вам снова придёт эта задача.
+                                        ACCOMPLICES: 
+                                        START_DATE_PLAN: 
+                                        END_DATE_PLAN: 
+                                        DEADLINE: 
+                                        PRIORITY: 
+                                        GROUP_ID: 
+                                        FLOW_ID: 
+                                        ALLOW_CHANGE_DEADLINE: Y
+                                        ALLOW_TIME_TRACKING: Y
+                                        TASK_CONTROL: N
+                                        AUDITORS: 
+                                        PARENT_ID: 
+                                        TAG_NAMES:
+                                        REQUIRED_RESULT: 
+                                        DEPENDS_ON:
+                                        UF_CRM_TASK: 
+                                        UF_TASK_WEBDAV_FILES:
+                                            0: 
+                                    HoldToClose: Y
+                                    AUTO_LINK_TO_CRM_ENTITY: N
+                                    AsChildTask: 
+                                    CheckListItems:
+                                    TimeEstimateHour: 
+                                    TimeEstimateMin: 
+                                    Title: Проверка бухгалтером
+                                    EditorComment: 
+                                Children:
+                            1:
+                                Type: RequestInformationActivity
+                                Name: A81487_43417_69797_15855
+                                Activated: Y
+                                Node: 
+                                Properties:
+                                    Users:
+                                        0: user_1
+                                    Name: Решение по задаче проверки документов для бизнес-процесса "Оформление УПД"
+                                    Description: Выберите решение и обязательно оставьте комментарий, если хотите вернуть задачу на доработку.
+                                    TaskButtonMessage: Сохранить
+                                    ShowComment: N
+                                    CommentRequired: N
+                                    CommentLabelMessage: Пояснение
+                                    SetStatusMessage: Y
+                                    StatusMessage: Ожидание дополнительной информации
+                                    TimeoutDuration: 
+                                    TimeoutDurationType: s
+                                    AccessControl: N
+                                    DelegationType: 0
+                                    RequestedInformation:
+                                        0:
+                                            Title: Ваше решение:
+                                            Name: resh_buh
+                                            Description: 
+                                            Type: select
+                                            Required: 1
+                                            Multiple: 0
+                                            Options:
+                                                Принять: Принять
+                                                Отправить на доработку: Отправить на доработку
+                                            Default: 
+                                        1:
+                                            Title: Комментарий:
+                                            Name: comm_buh
+                                            Description: 
+                                            Type: text
+                                            Required: 0
+                                            Multiple: 0
+                                            Default: 
+                                    OverdueDate: 
+                                    Title: Решение
+                                    EditorComment: 
+                                Children:
+                            2:
+                                Type: IfElseActivity
+                                Name: A38467_90060_93709_41664
+                                Activated: Y
+                                Node: 
+                                Properties:
+                                    Title: Условие
+                                Children:
+                                    0:
+                                        Type: IfElseBranchActivity
+                                        Name: A78685_92177_90455_29859
+                                        Activated: Y
+                                        Node: 
+                                        Properties:
+                                            Title: Условие
+                                            propertyvariablecondition:
+                                                0:
+                                                    0: resh_buh
+                                                    1: =
+                                                    2: Принять
+                                                    3: 0
+                                            EditorComment: 
+                                        Children:
+                                            0:
+                                                Type: SetVariableActivity
+                                                Name: A21596_54032_80300_49029
+                                                Activated: Y
+                                                Node: 
+                                                Properties:
+                                                    VariableValue:
+                                                        cicle_buh: Y
+                                                    Title: Изменение переменных
+                                                    EditorComment: 
+                                                Children:
+                                    1:
+                                        Type: IfElseBranchActivity
+                                        Name: A75497_15559_56260_42085
+                                        Activated: Y
+                                        Node: 
+                                        Properties:
+                                            Title: Условие
+                                            propertyvariablecondition:
+                                                0:
+                                                    0: resh_buh
+                                                    1: =
+                                                    2: Отправить на доработку
+                                                    3: 0
+                                            EditorComment: 
+                                        Children:
+                                            0:
+                                                Type: Task2Activity
+                                                Name: A43965_93541_19434_95608
+                                                Activated: Y
+                                                Node: 
+                                                Properties:
+                                                    Fields:
+                                                        TITLE: Возврат от бухгалтера на сбор документов УПД: {=Document:NAME}
+                                                        CREATED_BY: {=Document:CREATED_BY}
+                                                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                                                        DESCRIPTION:
+                                                            Бухгалтер вернул заявку по причине: {=Variable:comm_buh > printable}
+                                                            Доработайте заявку и загрузите файлы в папку по ссылке: {=A81269_73940_14466_61324:DetailUrl}
+                                                        ACCOMPLICES: 
+                                                        START_DATE_PLAN: 
+                                                        END_DATE_PLAN: 
+                                                        DEADLINE: 
+                                                        PRIORITY: 
+                                                        GROUP_ID: 0
+                                                        FLOW_ID: 
+                                                        ALLOW_CHANGE_DEADLINE: Y
+                                                        ALLOW_TIME_TRACKING: Y
+                                                        TASK_CONTROL: N
+                                                        AUDITORS: 
+                                                        PARENT_ID: 
+                                                        TAG_NAMES:
+                                                        REQUIRED_RESULT: N
+                                                        DEPENDS_ON:
+                                                        UF_CRM_TASK: 
+                                                        UF_TASK_WEBDAV_FILES:
+                                                            0: 
+                                                    HoldToClose: Y
+                                                    AUTO_LINK_TO_CRM_ENTITY: N
+                                                    AsChildTask: 
+                                                    CheckListItems:
+                                                    TimeEstimateHour: 
+                                                    TimeEstimateMin: 
+                                                    Title: Возврат
+                                                    EditorComment: 
+                                                Children:
+            3:
+                Type: Task2Activity
+                Name: A18040_91535_37114_45565
+                Activated: Y
+                Node: 
+                Properties:
+                    Fields:
+                        TITLE: Оформление УПД: {=Document:NAME}
+                        CREATED_BY: {=Document:CREATED_BY}
+                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                        DESCRIPTION:
+                            Необходимо сформировать УПД.
+                            
+                            ИНСТРУКЦИЯ:
+                            1. Сформируйте УПД и загрузите его в папку текущего процесса по ссылке: {=A81269_73940_14466_61324:DetailUrl}
+                            2. Для удобства вы можете продублировать файлы сюда, но снабженец увидит только файлы в папке на диске по ссылке выше.
+                            3. Проверьте УПД. Снабженец увидит заявку только после того, как вы нажмете кнопку "Завершить".
+                        ACCOMPLICES: 
+                        START_DATE_PLAN: 
+                        END_DATE_PLAN: 
+                        DEADLINE: 
+                        PRIORITY: 
+                        GROUP_ID: 0
+                        FLOW_ID: 
+                        ALLOW_CHANGE_DEADLINE: Y
+                        ALLOW_TIME_TRACKING: Y
+                        TASK_CONTROL: N
+                        AUDITORS: 
+                        PARENT_ID: 
+                        TAG_NAMES:
+                        REQUIRED_RESULT: N
+                        DEPENDS_ON:
+                        UF_CRM_TASK: 
+                        UF_TASK_WEBDAV_FILES:
+                            0: 
+                    HoldToClose: Y
+                    AUTO_LINK_TO_CRM_ENTITY: N
+                    AsChildTask: 
+                    CheckListItems:
+                    TimeEstimateHour: 
+                    TimeEstimateMin: 
+                    Title: Оформление УПД
+                    EditorComment: 
+                Children:
+            4:
+                Type: WhileActivity
+                Name: A81761_85013_46127_1983
+                Activated: Y
+                Node: 
+                Properties:
+                    propertyvariablecondition:
+                        0:
+                            0: cicle_snab
+                            1: =
+                            2: N
+                            3: 0
+                    Title: Проверка снабженцем
+                    EditorComment: 
+                    _DesMinimized: Y
+                Children:
+                    0:
+                        Type: SequenceActivity
+                        Name: A62830_98051_59597_52136
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+                            0:
+                                Type: Task2Activity
+                                Name: A25870_93738_78877_77313
+                                Activated: Y
+                                Node: 
+                                Properties:
+                                    Fields:
+                                        TITLE: Проверка оформленного УПД: {=Document:NAME}
+                                        CREATED_BY: {=Document:CREATED_BY}
+                                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                                        DESCRIPTION:
+                                            Необходимо проверить оформленный УПД.
+                                            
+                                            ИНСТРУКЦИЯ:
+                                            1. Проверьте загруженный УПД в папке текущего процесса по ссылке: {=A81269_73940_14466_61324:DetailUrl}
+                                            2. Папка с файлами будет доступна после завершения задачи.
+                                            3. Проверьте УПД. После полной проверки вне зависимости от результата нажмите кнопку "Завершить".
+                                            4. После этого на вкладке "Лента" появится новый запрос, где нужно выбрать результат проверки: принять или отправить обратно бухгалтеру на доработку.
+                                            5. При выборе пункта "Отправить на доработку" бухгалтеру отправится задача на доработку, а потом вам снова придёт эта задача.
+                                        ACCOMPLICES: 
+                                        START_DATE_PLAN: 
+                                        END_DATE_PLAN: 
+                                        DEADLINE: 
+                                        PRIORITY: 
+                                        GROUP_ID: 
+                                        FLOW_ID: 
+                                        ALLOW_CHANGE_DEADLINE: Y
+                                        ALLOW_TIME_TRACKING: Y
+                                        TASK_CONTROL: N
+                                        AUDITORS: 
+                                        PARENT_ID: 
+                                        TAG_NAMES:
+                                        REQUIRED_RESULT: 
+                                        DEPENDS_ON:
+                                        UF_CRM_TASK: 
+                                        UF_TASK_WEBDAV_FILES:
+                                            0: 
+                                    HoldToClose: Y
+                                    AUTO_LINK_TO_CRM_ENTITY: N
+                                    AsChildTask: 
+                                    CheckListItems:
+                                    TimeEstimateHour: 
+                                    TimeEstimateMin: 
+                                    Title: Проверка снабженцем
+                                    EditorComment: 
+                                Children:
+                            1:
+                                Type: RequestInformationActivity
+                                Name: A74897_33550_24620_29784
+                                Activated: Y
+                                Node: 
+                                Properties:
+                                    Users:
+                                        0: user_1
+                                    Name: Решение по задаче проверки УПД
+                                    Description: Выберите решение и обязательно оставьте комментарий, если хотите вернуть задачу на доработку.
+                                    TaskButtonMessage: Сохранить
+                                    ShowComment: N
+                                    CommentRequired: N
+                                    CommentLabelMessage: Пояснение
+                                    SetStatusMessage: Y
+                                    StatusMessage: Ожидание дополнительной информации
+                                    TimeoutDuration: 
+                                    TimeoutDurationType: s
+                                    AccessControl: N
+                                    DelegationType: 0
+                                    RequestedInformation:
+                                        0:
+                                            Title: Ваше решение:
+                                            Name: resh_snab
+                                            Description: 
+                                            Type: select
+                                            Required: 1
+                                            Multiple: 0
+                                            Options:
+                                                Принять: Принять
+                                                Отправить на доработку: Отправить на доработку
+                                            Default: 
+                                        1:
+                                            Title: Комментарий:
+                                            Name: comm_snab
+                                            Description: 
+                                            Type: text
+                                            Required: 0
+                                            Multiple: 0
+                                            Default: 
+                                    OverdueDate: 
+                                    Title: Решение
+                                    EditorComment: 
+                                Children:
+                            2:
+                                Type: IfElseActivity
+                                Name: A98183_32466_44980_84788
+                                Activated: Y
+                                Node: 
+                                Properties:
+                                    Title: Условие
+                                Children:
+                                    0:
+                                        Type: IfElseBranchActivity
+                                        Name: A68013_26098_70309_79989
+                                        Activated: Y
+                                        Node: 
+                                        Properties:
+                                            Title: Условие
+                                            EditorComment: 
+                                            propertyvariablecondition:
+                                                0:
+                                                    0: resh_snab
+                                                    1: =
+                                                    2: Принять
+                                                    3: 0
+                                        Children:
+                                            0:
+                                                Type: SetVariableActivity
+                                                Name: A16228_1089_6643_87374
+                                                Activated: Y
+                                                Node: 
+                                                Properties:
+                                                    VariableValue:
+                                                        cicle_snab: Y
+                                                    Title: Изменение переменных
+                                                    EditorComment: 
+                                                Children:
+                                    1:
+                                        Type: IfElseBranchActivity
+                                        Name: A1830_26792_54022_81955
+                                        Activated: Y
+                                        Node: 
+                                        Properties:
+                                            Title: Условие
+                                            EditorComment: 
+                                            propertyvariablecondition:
+                                                0:
+                                                    0: resh_snab
+                                                    1: =
+                                                    2: Отправить на доработку
+                                                    3: 0
+                                        Children:
+                                            0:
+                                                Type: Task2Activity
+                                                Name: A36636_34197_68160_93308
+                                                Activated: Y
+                                                Node: 
+                                                Properties:
+                                                    Fields:
+                                                        TITLE: Возврат от снабженца на оформление УПД: {=Document:NAME}
+                                                        CREATED_BY: {=Document:CREATED_BY}
+                                                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                                                        DESCRIPTION:
+                                                            Снабденец вернул заявку по причине: {=Variable:comm_snab > printable}
+                                                            Доработайте заявку и загрузите файлы в папку по ссылке: {=A81269_73940_14466_61324:DetailUrl}
+                                                        ACCOMPLICES: 
+                                                        START_DATE_PLAN: 
+                                                        END_DATE_PLAN: 
+                                                        DEADLINE: 
+                                                        PRIORITY: 
+                                                        GROUP_ID: 0
+                                                        FLOW_ID: 
+                                                        ALLOW_CHANGE_DEADLINE: Y
+                                                        ALLOW_TIME_TRACKING: Y
+                                                        TASK_CONTROL: N
+                                                        AUDITORS: 
+                                                        PARENT_ID: 
+                                                        TAG_NAMES:
+                                                        REQUIRED_RESULT: N
+                                                        DEPENDS_ON:
+                                                        UF_CRM_TASK: 
+                                                        UF_TASK_WEBDAV_FILES:
+                                                            0: 
+                                                    HoldToClose: Y
+                                                    AUTO_LINK_TO_CRM_ENTITY: N
+                                                    AsChildTask: 
+                                                    CheckListItems:
+                                                    TimeEstimateHour: 
+                                                    TimeEstimateMin: 
+                                                    Title: Возврат
+                                                    EditorComment: 
+                                                Children:
+            5:
+                Type: Task2Activity
+                Name: A91672_79900_10651_15967
+                Activated: Y
+                Node: 
+                Properties:
+                    Fields:
+                        TITLE: Подписание УПД: {=Document:NAME}
+                        CREATED_BY: {=Document:CREATED_BY}
+                        RESPONSIBLE_ID: {=Document:CREATED_BY}
+                        DESCRIPTION:
+                            Необходимо подписать УПД и загрузить его.
+                            
+                            ИНСТРУКЦИЯ:
+                            1. Загрузите подписанный УПД в папку для подписанных УПД по ссылке: https://b24-hfxe2k.bitrix24.ru/bitrix/tools/disk/focus.php?folderId=95&action=openFolderList&ncc=1
+                            2. Проверьте файл. После того, как вы нажмете кнопку "Завершить", задача со ссылкой останется видимой в разделе "Задачи и проекты" и вы сможете изменить прикреплённый до этого файл.
+                        ACCOMPLICES: 
+                        START_DATE_PLAN: 
+                        END_DATE_PLAN: 
+                        DEADLINE: 
+                        PRIORITY: 
+                        GROUP_ID: 0
+                        FLOW_ID: 
+                        ALLOW_CHANGE_DEADLINE: Y
+                        ALLOW_TIME_TRACKING: Y
+                        TASK_CONTROL: N
+                        AUDITORS: 
+                        PARENT_ID: 
+                        TAG_NAMES:
+                        REQUIRED_RESULT: N
+                        DEPENDS_ON:
+                        UF_CRM_TASK: 
+                        UF_TASK_WEBDAV_FILES:
+                            0: 
+                    HoldToClose: Y
+                    AUTO_LINK_TO_CRM_ENTITY: N
+                    AsChildTask: 
+                    CheckListItems:
+                    TimeEstimateHour: 
+                    TimeEstimateMin: 
+                    Title: Прикрепление подписанного УПД
+                    EditorComment: 
+                Children:
+PARAMETERS:
+VARIABLES:
+    resh_buh:
+        Name: Ваше решение:
+        Title: Ваше решение:
+        Description: 
+        Type: select
+        Required: 1
+        Multiple: 0
+        Options:
+            Принять: Принять
+            Отправить на доработку: Отправить на доработку
+        Default: 
+    cicle_buh:
+        Name: Цикл буха
+        Description: 
+        Type: bool
+        Required: 0
+        Multiple: 0
+        Options: 
+        Default: 
+    comm_buh:
+        Name: Комментарий:
+        Title: Комментарий:
+        Description: 
+        Type: text
+        Required: 0
+        Multiple: 0
+        Default: 
+    cicle_snab:
+        Name: Цикл снаба
+        Description: 
+        Type: bool
+        Required: 0
+        Multiple: 0
+        Options: 
+        Default: N
+    resh_snab:
+        Name: Ваше решение:
+        Title: Ваше решение:
+        Description: 
+        Type: select
+        Required: 1
+        Multiple: 0
+        Options:
+            Принять: Принять
+            Отправить на доработку: Отправить на доработку
+        Default: 
+    comm_snab:
+        Name: Комментарий:
+        Title: Комментарий:
+        Description: 
+        Type: text
+        Required: 0
+        Multiple: 0
+        Default: 
+CONSTANTS:
+DOCUMENT_FIELDS:
+    ID:
+        Name: ID элемента
+        Type: int
+        Filterable: True
+        Editable: False
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    TIMESTAMP_X:
+        Name: Дата изменения элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    MODIFIED_BY:
+        Name: Кем изменен
+        Type: user
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: user
+        Complex: False
+    DATE_CREATE:
+        Name: Дата создания элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    CREATED_BY:
+        Name: Кем создан
+        Type: user
+        Filterable: True
+        Editable: False
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: user
+        Complex: False
+    IBLOCK_ID:
+        Name: ID информационного блока
+        Type: int
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    ACTIVE:
+        Name: Активность элемента
+        Type: bool
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: bool
+        Complex: False
+    BP_PUBLISHED:
+        Name: Опубликован
+        Type: bool
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: bool
+        Complex: False
+    ACTIVE_FROM:
+        Name: Дата начала активности элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    ACTIVE_TO:
+        Name: Дата окончания активности элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    SORT:
+        Name: Индекс сортировки элемента
+        Type: int
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    NAME:
+        Name: Название
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        Type: string
+        sort: 10
+        settings:
+            SHOW_ADD_FORM: Y
+            SHOW_EDIT_FORM: Y
+        active: True
+        active_type: NAME
+        DefaultValue: 
+        BaseType: string
+        Complex: False
+    PREVIEW_PICTURE:
+        Name: Изображение для предпросмотра
+        Type: file
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: file
+        Complex: False
+    PREVIEW_TEXT:
+        Name: Текст для предпросмотра
+        Type: text
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: text
+        Complex: False
+    PREVIEW_TEXT_TYPE:
+        Name: Тип текста для предпросмотра
+        Type: select
+        Options:
+            text: Текст
+            html: Html
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: select
+        Complex: True
+    DETAIL_PICTURE:
+        Name: Изображение для просмотра
+        Type: file
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: file
+        Complex: False
+    DETAIL_TEXT:
+        Name: Текст для просмотра
+        Type: text
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: text
+        Complex: False
+    DETAIL_TEXT_TYPE:
+        Name: Тип текста для просмотра
+        Type: select
+        Options:
+            text: Текст
+            html: Html
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: select
+        Complex: True
+    CODE:
+        Name: Мнемонический код
+        Type: string
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: string
+        Complex: False
+    XML_ID:
+        Name: Внешний ключ
+        Type: string
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: string
+        Complex: False

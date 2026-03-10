@@ -1,0 +1,694 @@
+Файл исходник: C:\Users\Frich\Downloads\MLops\Diploma\Other.bpt
+============================================================
+
+VERSION: 2
+TEMPLATE:
+    0:
+        Type: SequentialWorkflowActivity
+        Name: Template
+        Activated: Y
+        Node: 
+        Properties:
+            Title: Последовательный бизнес-процесс
+            Permission:
+                D:
+                E:
+                R:
+                S:
+                T:
+                U:
+                W:
+                X:
+        Children:
+            0:
+                Type: CrmGetDataEntityActivity
+                Name: A57900_24806_11626_25553
+                Activated: Y
+                Node: 
+                Properties:
+                    DocumentType:
+                        0: lists
+                        1: BizprocDocument
+                        2: iblock_24
+                    EntityId: {=Document:ID}
+                    EntityType: CONTACT
+                    PrintableVersion: Y
+                    EntityFields:
+                        LAST_NAME:
+                            Name: Фамилия
+                            Type: string
+                            Settings: 
+                            Options: 
+                    Title: Выбор данных crm
+                    EditorComment: 
+                Children:
+            1:
+                Type: SetStateTitleActivity
+                Name: A83615_27018_47559_69818
+                Activated: Y
+                Node: 
+                Properties:
+                    TargetStateTitle: jikmlo 
+                    Title: Установить текст статуса
+                    EditorComment: 
+                Children:
+            2:
+                Type: IMNotifyActivity
+                Name: A16472_29847_9893_21366
+                Activated: Y
+                Node: 
+                Properties:
+                    MessageSite: oijk
+                    MessageOut: ikp
+                    MessageType: 2
+                    MessageUserFrom:
+                        0: 11
+                    MessageUserTo:
+                        0: 1
+                    Title: Уведомление пользователя
+                    EditorComment: 
+                Children:
+            3:
+                Type: Calendar2Activity
+                Name: A87145_82865_17355_51714
+                Activated: Y
+                Node: 
+                Properties:
+                    CalendarName: oplk
+                    CalendarDesrc: 
+                    CalendarFrom: 12.03.2026 16:15:00
+                    CalendarTo: 
+                    CalendarType: 
+                    CalendarOwnerId: 
+                    CalendarSection: 
+                    CalendarTimezone: Asia/Yekaterinburg
+                    CalendarUser:
+                        0: author
+                    Title: Событие календаря
+                    EditorComment: 
+                Children:
+            4:
+                Type: MailActivity
+                Name: A61029_76131_42650_80901
+                Activated: Y
+                Node: 
+                Properties:
+                    MailSubject: iujokm
+                    MailText: jkun 
+                    MailMessageType: plain
+                    MailCharset: UTF-8
+                    DirrectMail: Y
+                    MailSite: 
+                    MailSeparator: ,
+                    File:
+                        0: 
+                    FileType: file
+                    MailUserFrom: 
+                    MailUserFromArray:
+                        0: {=Document:MODIFIED_BY}
+                    MailUserTo: 
+                    MailUserToArray:
+                        0: {=Document:CREATED_BY}
+                    MailMessageEncoded: 0
+                    Title: Почтовое сообщение
+                    EditorComment: 
+                Children:
+            5:
+                Type: ImMessageActivity
+                Name: A87268_54081_85137_32251
+                Activated: Y
+                Node: 
+                Properties:
+                    MessageUserFrom: user_1
+                    MessageUserTo:
+                        0: {=Document:CREATED_BY}
+                    MessageTemplate: plain
+                    MessageFields:
+                        MessageText: yutgbhj
+                    Title: Отправить сообщение сотруднику в чат
+                    EditorComment: 
+                Children:
+            6:
+                Type: ImAddMessageToGroupChatActivity
+                Name: A49388_36368_82549_76433
+                Activated: Y
+                Node: 
+                Properties:
+                    ChatId: 102
+                    FromMember: user_1
+                    MessageTemplate: plain
+                    MessageFields:
+                        MessageText: uyihg
+                    Title: Отправить сообщение в групповой чат
+                    EditorComment: 
+                Children:
+            7:
+                Type: SocnetBlogPostActivity
+                Name: A60360_86076_73103_1929
+                Activated: Y
+                Node: 
+                Properties:
+                    PostTitle: 
+                    PostMessage: ihuojn
+                    PostSite: 
+                    OwnerId:
+                        0: user_1
+                    UsersTo:
+                        0: {=Document:CREATED_BY}
+                    AttachmentType: file
+                    Tags:
+                    Attachment:
+                        0: 
+                    Title: Новость
+                    EditorComment: 
+                Children:
+            8:
+                Type: AbsenceActivity
+                Name: A5829_25857_82379_58613
+                Activated: Y
+                Node: 
+                Properties:
+                    AbsenceName: {=Document:NAME}
+                    AbsenceDesrc: 
+                    AbsenceFrom: 12.03.2026 16:13:00
+                    AbsenceTo: 26.03.2026 16:13:00
+                    AbsenceState: 
+                    AbsenceFinishState: 
+                    AbsenceType: VACATION
+                    AbsenceSiteId: s1
+                    AbsenceUser:
+                        0: author
+                    Title: График отсутствия
+                    EditorComment: 
+                Children:
+            9:
+                Type: ListenActivity
+                Name: A46855_19264_17679_85257
+                Activated: Y
+                Node: 
+                Properties:
+                    Title: Параллельное ожидание действия
+                    EditorComment: 
+                Children:
+                    0:
+                        Type: EventDrivenActivity
+                        Name: A6040_20564_43516_72874
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Оболочка события
+                        Children:
+                    1:
+                        Type: EventDrivenActivity
+                        Name: A14488_35286_895_22864
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Оболочка события
+                        Children:
+            10:
+                Type: ParallelActivity
+                Name: A45615_94594_79201_45887
+                Activated: Y
+                Node: 
+                Properties:
+                    Title: Параллельное выполнение
+                    EditorComment: 
+                Children:
+                    0:
+                        Type: SequenceActivity
+                        Name: A97578_1406_53778_942
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+                    1:
+                        Type: SequenceActivity
+                        Name: A13019_63326_80090_54853
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+            11:
+                Type: HandleExternalEventActivity
+                Name: A7904_83420_21732_48408
+                Activated: Y
+                Node: 
+                Properties:
+                    Permission:
+                    Title: Команда
+                    EditorComment: 
+                Children:
+            12:
+                Type: ForEachActivity
+                Name: A66677_69319_34713_38163
+                Activated: Y
+                Node: 
+                Properties:
+                    Variable: CREATED_BY
+                    Object: Document
+                    Title: Итератор
+                    EditorComment: 
+                Children:
+                    0:
+                        Type: SequenceActivity
+                        Name: A14029_91299_60067_19843
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+            13:
+                Type: RequestInformationOptionalActivity
+                Name: A85817_4023_2633_59634
+                Activated: Y
+                Node: 
+                Properties:
+                    Users:
+                        0: 11
+                    Name: {=Document:MODIFIED_BY}
+                    Description: 
+                    TaskButtonMessage: Сохранить
+                    ShowComment: Y
+                    CommentRequired: N
+                    CommentLabelMessage: Пояснение
+                    SetStatusMessage: Y
+                    StatusMessage: Ожидание дополнительной информации
+                    TimeoutDuration: 
+                    TimeoutDurationType: s
+                    AccessControl: N
+                    DelegationType: 0
+                    RequestedInformation:
+                        0:
+                            Title: drfg
+                            Name: rge
+                            Description: 
+                            Type: string
+                            Required: 0
+                            Multiple: 0
+                            Default: 
+                    OverdueDate: 
+                    CancelType: any
+                    TaskButtonCancelMessage: Отмена
+                    SaveVariables: N
+                    Title: Запрос доп.информации (с отклонением)
+                    EditorComment: 
+                Children:
+                    0:
+                        Type: SequenceActivity
+                        Name: A52460_26756_37012_98941
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+                    1:
+                        Type: SequenceActivity
+                        Name: A44564_90511_8659_91025
+                        Activated: Y
+                        Node: 
+                        Properties:
+                            Title: Последовательность действий
+                        Children:
+            14:
+                Type: LockDocumentActivity
+                Name: A21459_56891_27537_4657
+                Activated: Y
+                Node: 
+                Properties:
+                    Title: Блокировка документа
+                Children:
+            15:
+                Type: StartWorkflowActivity
+                Name: A72193_63181_98028_56960
+                Activated: Y
+                Node: 
+                Properties:
+                    DocumentId: {=A72193_63181_98028_56960:WorkflowId}
+                    TemplateId: 20
+                    UseSubscription: N
+                    TemplateParameters:
+                    Title: Запустить бизнес-процесс
+                    EditorComment: 
+                Children:
+            16:
+                Type: UpdateListsDocumentActivity
+                Name: A86759_56704_49469_6754
+                Activated: Y
+                Node: 
+                Properties:
+                    Fields:
+                        NAME: {=Document:NAME}
+                        PROPERTY_FROM: 18.03.2026 [0]
+                        PROPERTY_TO: 25.03.2026 [0]
+                    DocumentType:
+                        0: lists
+                        1: BizprocDocument
+                        2: iblock_22
+                    ElementId: {=Document:IBLOCK_ID}
+                    Title: Изменить элемент списка
+                    EditorComment: 
+                Children:
+            17:
+                Type: TasksGetDocumentActivity
+                Name: A28708_82585_24310_31244
+                Activated: Y
+                Node: 
+                Properties:
+                    TaskId: {=Document:ID}
+                    Fields:
+                        0: TITLE
+                    FieldsMap:
+                        TITLE:
+                            Id: 
+                            Type: string
+                            BaseType: 
+                            Name: Название
+                            Description: 
+                            Multiple: 0
+                            Required: 0
+                            Options: 
+                            Settings: 
+                            Default: 
+                    Title: Получить информацию о задаче
+                    EditorComment: 
+                Children:
+            18:
+                Type: GetListsDocumentActivity
+                Name: A42977_65148_5635_65944
+                Activated: Y
+                Node: 
+                Properties:
+                    DocumentType:
+                        0: lists
+                        1: BizprocDocument
+                        2: iblock_18
+                    ElementId: {=Document:ID}
+                    Fields:
+                        0: PROPERTY_NUMBER
+                    FieldsMap:
+                        PROPERTY_NUMBER:
+                            Id: 
+                            Type: string
+                            BaseType: string
+                            Name: Номер счета
+                            Description: 
+                            Multiple: 0
+                            Required: 0
+                            Options: 
+                            Settings:
+                                SHOW_ADD_FORM: Y
+                                SHOW_EDIT_FORM: Y
+                            Default: 
+                    Title: Получить информацию об элементе списка
+                    EditorComment: 
+                Children:
+            19:
+                Type: PublishDocumentActivity
+                Name: A76848_87004_78802_76756
+                Activated: Y
+                Node: 
+                Properties:
+                    Title: Публикация документа
+                    EditorComment: 
+                Children:
+            20:
+                Type: UnlockDocumentActivity
+                Name: A54622_93572_91849_53857
+                Activated: Y
+                Node: 
+                Properties:
+                    Title: Разблокировка документа
+                Children:
+            21:
+                Type: UnpublishDocumentActivity
+                Name: A45731_10698_45427_953
+                Activated: Y
+                Node: 
+                Properties:
+                    Title: Снятие документа с публикации
+                Children:
+            22:
+                Type: CreateDocumentActivity
+                Name: A31823_46869_9941_81101
+                Activated: Y
+                Node: 
+                Properties:
+                    Fields:
+                        IBLOCK_ID: {=Document:ID}
+                        NAME: {=Document:NAME}
+                    Title: Создание нового документа
+                    EditorComment: 
+                Children:
+            23:
+                Type: CreateListsDocumentActivity
+                Name: A31667_31769_19147_10977
+                Activated: Y
+                Node: 
+                Properties:
+                    Fields:
+                        IBLOCK_ID: 24
+                        NAME: {=Document:NAME}
+                    DocumentType:
+                        0: lists
+                        1: BizprocDocument
+                        2: iblock_24
+                    Title: Создать элемент списка
+                    EditorComment: 
+                Children:
+            24:
+                Type: DeleteDocumentActivity
+                Name: A97622_48408_44757_51089
+                Activated: Y
+                Node: 
+                Properties:
+                    TerminateCurrentWorkflow: N
+                    Title: Удаление документа
+                    EditorComment: 
+                Children:
+PARAMETERS:
+VARIABLES:
+    rge:
+        Name: drfg
+        Title: drfg
+        Description: 
+        Type: string
+        Required: 0
+        Multiple: 0
+        Default: 
+CONSTANTS:
+DOCUMENT_FIELDS:
+    ID:
+        Name: ID элемента
+        Type: int
+        Filterable: True
+        Editable: False
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    TIMESTAMP_X:
+        Name: Дата изменения элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    MODIFIED_BY:
+        Name: Кем изменен
+        Type: user
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: user
+        Complex: False
+    DATE_CREATE:
+        Name: Дата создания элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    CREATED_BY:
+        Name: Кем создан
+        Type: user
+        Filterable: True
+        Editable: False
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: user
+        Complex: False
+    IBLOCK_ID:
+        Name: ID информационного блока
+        Type: int
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    ACTIVE:
+        Name: Активность элемента
+        Type: bool
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: bool
+        Complex: False
+    BP_PUBLISHED:
+        Name: Опубликован
+        Type: bool
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: bool
+        Complex: False
+    ACTIVE_FROM:
+        Name: Дата начала активности элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    ACTIVE_TO:
+        Name: Дата окончания активности элемента
+        Type: datetime
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: datetime
+        Complex: False
+    SORT:
+        Name: Индекс сортировки элемента
+        Type: int
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: int
+        Complex: False
+    NAME:
+        Name: Название
+        Filterable: True
+        Editable: True
+        Required: True
+        Multiple: False
+        Type: string
+        sort: 10
+        settings:
+            SHOW_ADD_FORM: Y
+            SHOW_EDIT_FORM: Y
+        active: True
+        active_type: NAME
+        DefaultValue: 
+        BaseType: string
+        Complex: False
+    PREVIEW_PICTURE:
+        Name: Изображение для предпросмотра
+        Type: file
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: file
+        Complex: False
+    PREVIEW_TEXT:
+        Name: Текст для предпросмотра
+        Type: text
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: text
+        Complex: False
+    PREVIEW_TEXT_TYPE:
+        Name: Тип текста для предпросмотра
+        Type: select
+        Options:
+            text: Текст
+            html: Html
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: select
+        Complex: True
+    DETAIL_PICTURE:
+        Name: Изображение для просмотра
+        Type: file
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: file
+        Complex: False
+    DETAIL_TEXT:
+        Name: Текст для просмотра
+        Type: text
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: text
+        Complex: False
+    DETAIL_TEXT_TYPE:
+        Name: Тип текста для просмотра
+        Type: select
+        Options:
+            text: Текст
+            html: Html
+        Filterable: False
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: select
+        Complex: True
+    CODE:
+        Name: Мнемонический код
+        Type: string
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: string
+        Complex: False
+    XML_ID:
+        Name: Внешний ключ
+        Type: string
+        Filterable: True
+        Editable: True
+        Required: False
+        Multiple: False
+        active: False
+        BaseType: string
+        Complex: False
