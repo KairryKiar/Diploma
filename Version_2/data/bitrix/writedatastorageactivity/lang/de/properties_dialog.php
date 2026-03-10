@@ -1,0 +1,3 @@
+<?php
+$MESS["BIZPROC_WRITE_DATA_ACTIVITY_ADD_FIELD"] = "Feld hinzufügen";
+$MESS["BIZPROC_WRITE_DATA_ACTIVITY_CREATE_NEW_FIELD"] = "Neues Feld erstellen";

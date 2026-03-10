@@ -1,0 +1,8 @@
+<?php
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_ERROR_EMPTY_FROM"] = "Verbindungskanal ist nicht konfiguriert.";
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_ERROR_EMPTY_MESSAGE"] = "Nachrichtentext ist leer.";
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_ERROR_EMPTY_TEMPLATE_ID"] = "Keine Vorlage ausgewählt.";
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_ERROR_EMPTY_TO"] = "Die Telefonnummer des Kunden wurde im CRM-Element nicht gefunden.";
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_ERROR_NOT_TUNED"] = "Verbindung von Edna ist nicht konfiguriert.";
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_MAP_EDITOR_NAME"] = "Nachricht";
+$MESS["CRM_SEND_WHATS_APP_MESSAGE_ACTIVITY_MAP_TEMPLATE_NAME"] = "Vorlage";

@@ -1,0 +1,26 @@
+<?php
+$MESS["AI_PROCESSING_ACTIVITY_EMPTY_ENGINE"] = "KI-Anbieter ist nicht ausgewählt.";
+$MESS["AI_PROCESSING_ACTIVITY_EMPTY_PROMPT"] = "KI-Prompt ist nicht angegeben.";
+$MESS["AI_PROCESSING_ACTIVITY_EMPTY_RETURN_TYPE"] = "Antwortformat ist nicht korrekt.";
+$MESS["AI_PROCESSING_ACTIVITY_ENGINE_NOT_FOUND"] = "Ausgewählter KI-Anbieter ist nicht verfügbar.";
+$MESS["AI_PROCESSING_ACTIVITY_EXECUTION_TIMEOUT_ERROR"] = "Die Zeit für die Antwort des KI-Agenten ist abgelaufen. Versuchen Sie es später erneut.";
+$MESS["AI_PROCESSING_ACTIVITY_FIELD_ENGINE_NAME"] = "KI-Anbieter";
+$MESS["AI_PROCESSING_ACTIVITY_FIELD_JSON_SCHEMA_DESC"] = "Beschreiben Sie die zu erwartende JSON-Struktur. Dieses Feld ist erforderlich, wenn als Antwortformat \"Striktes JSOM-Schema\" ausgewählt ist.";
+$MESS["AI_PROCESSING_ACTIVITY_FIELD_JSON_SCHEMA_NAME"] = "Ergebnis des JSON-Schemas";
+$MESS["AI_PROCESSING_ACTIVITY_FIELD_PROMPT_NAME"] = "Prompt";
+$MESS["AI_PROCESSING_ACTIVITY_FIELD_RETURN_TYPE"] = "Antwortformat";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_INVALID"] = "JSON-Schema ist nicht korrekt (Syntaxfehler oder Format wird nicht unterstützt).";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_PREVIEW_TITLE"] = "Vorschau";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_REQUIRED"] = "JSON-Schema ist für das ausgewählte Antwortformat nicht angegeben.";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_STATUS_INVALID"] = "Fehler: ungültiges JSON.";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_STATUS_VALID"] = "Das Schema ist gültig.";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_TEMPLATE_BTN"] = "Vorlage anwenden";
+$MESS["AI_PROCESSING_ACTIVITY_JSON_SCHEMA_TEMPLATE_CONFIRM_OVERWRITE"] = "Das aktuelle Schema durch die Vorlage ersetzen?";
+$MESS["AI_PROCESSING_ACTIVITY_MODULE_NOT_INSTALLED"] = "Das Modul \"AI\" ist nicht installiert.";
+$MESS["AI_PROCESSING_ACTIVITY_QUEUE_ERROR"] = "Die Aufgabe konnte nicht in die Warteschlange eingereiht werden. Fehler: #ERROR#.";
+$MESS["AI_PROCESSING_ACTIVITY_QUEUE_FAIL"] = "Die Aufgabe in der Warteschlange konnte nicht verarbeitet werden: #MESSAGE# (#CODE#).";
+$MESS["AI_PROCESSING_ACTIVITY_QUEUE_RESULT"] = "KI-Prompt wurde verarbeitet. Ergebnis: #RESULT#.";
+$MESS["AI_PROCESSING_ACTIVITY_QUEUE_UNEXPECTED_FAIL"] = "Die Aufgabe in der Warteschlange konnte nicht verarbeitet werden. Leider ist etwas schiefgegangen.";
+$MESS["AI_PROCESSING_ACTIVITY_QUEUE_UNEXPECTED_RESULT"] = "Das Ergebnis der Verarbeitung des KI-Prompts kann nicht im erforderlichen Format angezeigt werden.";
+$MESS["AI_PROCESSING_ACTIVITY_RETURN_TYPE_JSON"] = "Striktes JSON";
+$MESS["AI_PROCESSING_ACTIVITY_RETURN_TYPE_STRING"] = "Text";

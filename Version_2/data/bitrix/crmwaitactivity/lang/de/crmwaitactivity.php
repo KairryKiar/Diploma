@@ -1,0 +1,21 @@
+<?php
+$MESS["CRM_WAIT_ACTIVITY_WAIT_TYPE"] = "Wartetyp";
+$MESS["CRM_WAIT_ACTIVITY_WAIT_AFTER"] = "Angegebene Anzahl der Tage abwarten";
+$MESS["CRM_WAIT_ACTIVITY_WAIT_BEFORE"] = "Angegeben Anzahl der Tage bis den ausgewählten tag abwarten";
+$MESS["CRM_WAIT_ACTIVITY_WAIT_DURATION"] = "Zeitabstand, in Tagen";
+$MESS["CRM_WAIT_ACTIVITY_WAIT_TARGET"] = "Bis angegebenes Datum";
+$MESS["CRM_WAIT_ACTIVITY_WAIT_DESCRIPTION"] = "Kommentar oder Anweisungen";
+$MESS["CRM_WAIT_ACTIVITY_ERROR_WAIT_TYPE"] = "Wartetyp ist nicht angegeben";
+$MESS["CRM_WAIT_ACTIVITY_ERROR_WAIT_DURATION"] = "Zeitabstand ist nicht angegeben";
+$MESS["CRM_WAIT_ACTIVITY_ERROR_WAIT_TARGET"] = "Datum, bis wann zu warten ist, ist nicht angegeben";
+$MESS["CRM_WAIT_ACTIVITY_EXECUTE_ERROR_WAIT_TARGET_1"] = "Das Zielfeld des Elements wurde nicht gefunden";
+$MESS["CRM_WAIT_ACTIVITY_EXECUTE_ERROR_WAIT_TARGET_TIME_1"] = "Der Wert des Datum kann vom Elementfeld nicht angefordert werden";
+$MESS["CRM_WAIT_ACTIVITY_EXECUTE_ERROR_WAIT_BEFORE"] = "Das Datum, bis wann gewartet werden soll, muss später sein als das aktuelle Datum. Das Datum, das Sie eingegeben haben, liegt entweder in der Vergangenheit oder aber zu weit in der Zukunft.";
+$MESS["CRM_WAIT_ACTIVITY_DESCRIPTION_TYPE_AFTER"] = "#DURATION# abwarten oder auf eine beliebige Kundenaktivität warten";
+$MESS["CRM_WAIT_ACTIVITY_DESCRIPTION_TYPE_BEFORE"] = "#DURATION# bis \"#TARGET_DATE#\" abwarten oder auf eine beliebige Kundenaktivität warten";
+$MESS["CRM_WAIT_ACTIVITY_DAY_PLURAL_0"] = "Tag";
+$MESS["CRM_WAIT_ACTIVITY_DAY_PLURAL_1"] = "Tage";
+$MESS["CRM_WAIT_ACTIVITY_DAY_PLURAL_2"] = "Tage";
+$MESS["CRM_WAIT_ACTIVITY_WEEK_PLURAL_0"] = "Woche";
+$MESS["CRM_WAIT_ACTIVITY_WEEK_PLURAL_1"] = "Wochen";
+$MESS["CRM_WAIT_ACTIVITY_WEEK_PLURAL_2"] = "Wochen";

@@ -1,0 +1,19 @@
+<?php
+$MESS["BP_SSA_ACTIVITY_EMPTY_DOCUMENT_ID"] = "Element-ID fehlt.";
+$MESS["BP_SSA_ACTIVITY_EMPTY_START_BY"] = "Das Feld \"Als Nutzer starten\" fehlt.";
+$MESS["BP_SSA_ACTIVITY_INCORRECT_TEMPLATE_ID"] = "Ungültige Vorlagen-ID.";
+$MESS["BP_SSA_ACTIVITY_LIMIT_DOCUMENT_IDS"] = "Maximale Anzahl der gestarteten smarten Skripts überschritten.";
+$MESS["BP_SSA_ACTIVITY_LIMIT_QUEUE"] = "Dieses smarte Skript läuft noch. Sie können es nicht erneut starten.";
+$MESS["BP_SSA_ACTIVITY_LOOPING_ERROR"] = "Smartes Skript blockiert, weil es sich selbst rekursiv aufruft.";
+$MESS["BP_SSA_ACTIVITY_MAP_DOCUMENT_ID"] = "Element-ID";
+$MESS["BP_SSA_ACTIVITY_MAP_PARAMETERS"] = "Parameter zum Starten des smarten Skripts";
+$MESS["BP_SSA_ACTIVITY_MAP_PARAMETERS_HIDDEN"] = "Sie haben nicht genügend Rechte, um Parameter des aktuellen smarten Skripts zu bearbeiten.";
+$MESS["BP_SSA_ACTIVITY_MAP_START_BY"] = "Als Nutzer starten";
+$MESS["BP_SSA_ACTIVITY_MAP_TEMPLATE_ID"] = "Smartes Skript";
+$MESS["BP_SSA_ACTIVITY_NOT_FOUND_DOCUMENT"] = "Element mit dieser ID kann nicht gefunden werden.";
+$MESS["BP_SSA_ACTIVITY_NOT_FOUND_TEMPLATE"] = "Smartes Skript wurde nicht gefunden, oder ist inaktiv.";
+$MESS["BP_SSA_ACTIVITY_NOT_MATCH_DOCUMENT_TYPE"] = "Der Typ von der ausgewählten Element-ID wird von smarten Skripts nicht unterstützt.";
+$MESS["BP_SSA_ACTIVITY_TEMPLATE_PARAMETERS_ERROR"] = "Der erforderliche Parameter #NAME# ist leer.";
+$MESS["BP_SSA_ACTIVITY_VALIDATE_EMPTY_DOCUMENT_ID"] = "Das Feld \"Element-ID\" ist erforderlich.";
+$MESS["BP_SSA_ACTIVITY_VALIDATE_EMPTY_START_BY"] = "Das Feld \"Als Nutzer starten\" ist erforderlich.";
+$MESS["BP_SSA_ACTIVITY_VALIDATE_EMPTY_TEMPLATE_ID"] = "Das Feld \"Smartes Skript\" ist erforderlich.";
