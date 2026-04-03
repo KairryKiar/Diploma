@@ -36,7 +36,17 @@ def extract_metadata():
     conn = sqlite3.connect(db_path)
     c = conn.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS activities (code TEXT UNIQUE, name TEXT, category TEXT)")
-    c.execute("CREATE TABLE IF NOT EXISTS properties (activity_code TEXT, name TEXT, type TEXT, is_return INTEGER)")
+    # Учитываем, что мы добавили id и source ранее
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS properties (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        activity_code TEXT, 
+        name TEXT, 
+        type TEXT, 
+        is_return INTEGER,
+        source TEXT DEFAULT 'core'
+    )
+    """)
     c.execute("DELETE FROM activities")
     c.execute("DELETE FROM properties")
     
@@ -78,6 +88,7 @@ def extract_metadata():
             
             c.execute("INSERT INTO activities (code, name, category) VALUES (?, ?, ?)", (act_code, name, category))
             
+            # --- ИСХОДЯЩИЕ ПАРАМЕТРЫ (is_return = 1) ---
             ret_match = re.search(r"['\"]RETURN['\"]\s*=>", content, re.I)
             if ret_match:
                 ret_content = get_array_content(content, ret_match.end())
@@ -88,7 +99,37 @@ def extract_metadata():
                     prop_type = type_match.group(1) if type_match else "string"
                     
                     if prop_body.strip():
-                        c.execute("INSERT INTO properties (activity_code, name, type, is_return) VALUES (?, ?, ?, 1)", (act_code, prop_name, prop_type))
+                        c.execute("INSERT INTO properties (activity_code, name, type, is_return, source) VALUES (?, ?, ?, 1, 'core')", (act_code, prop_name, prop_type))
+            
+            # --- ВХОДЯЩИЕ ПАРАМЕТРЫ (is_return = 0) ИЗ ЯДРА ---
+            # Пытаемся найти класс самого активити:
+            activity_php = os.path.join(root, f"{act_code}.php")
+            if os.path.exists(activity_php):
+                act_content = read_file(activity_php)
+                prop_keys = []
+                
+                # Способ 1: Ищем определение $this->arProperties
+                match = re.search(r"\$this->arProperties\s*=", act_content)
+                if match:
+                    arr_content = get_array_content(act_content, match.end())
+                    prop_keys = re.findall(r"['\"]([a-zA-Z0-9_]+)['\"]\s*=>", arr_content)
+                else:
+                    # Способ 2: Ищем функцию getPropertiesMap
+                    match2 = re.search(r"function\s+getPropertiesMap\s*\(", act_content, re.I)
+                    if match2:
+                        ret_match = re.search(r"return\s+", act_content[match2.end():])
+                        if ret_match:
+                            arr_content = get_array_content(act_content, match2.end() + ret_match.end())
+                            # Ищем ключи первого уровня
+                            prop_keys = re.findall(r"^\s*['\"]([a-zA-Z0-9_]+)['\"]\s*=>", arr_content, re.MULTILINE)
+                
+                # Добавляем найденные входящие настройки
+                for k in prop_keys:
+                    k_clean = k.strip()
+                    if k_clean and k_clean.lower() not in ('title', 'name'):
+                        c.execute("SELECT 1 FROM properties WHERE activity_code=? AND name=? AND is_return=0", (act_code, k_clean))
+                        if not c.fetchone():
+                            c.execute("INSERT INTO properties (activity_code, name, type, is_return, source) VALUES (?, ?, 'string', 0, 'core')", (act_code, k_clean))
 
     conn.commit()
     conn.close()
